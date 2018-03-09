@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+import org.omg.Messaging.SyncScopeHelper;
+public class ReverseString {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner s=new Scanner(System.in);
+		String str=s.nextLine();
+        int start=0;
+    
+    String finalans="";
+     int j=0;
+     for(;j<str.length();j++) {
+    	 if(str.charAt(j)==(' ')) {
+    		int  end=j-1;
+    		
+    		 String ans="";
+    	 
+     for(int i=end;i>=start;i--) {
+    	 ans=ans+str.charAt(i);
+     }
+    	
+   
+    	 	 
+     
+
+     finalans+=ans+" ";
+     start=j+1;
+     
+     
+     }
+    	
+    	 }
+     System.out.print(finalans);
+		
+    	
+	}
+    
+	
+     
+	
+}
