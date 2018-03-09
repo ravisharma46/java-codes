@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class DecimaltoBinary {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner s= new Scanner(System.in);
+		int n,c;
+		n=s.nextInt();
+		long i=1;
+		long d=0;
+	long	y=1;
+		while(n!=0) {
+			
+			c=n%10;
+			n=n/10;
+		   y=c*i;
+		   d=d+y;
+		   i=i*2;
+		  }
+		 System.out.print(d);
+		
+	}
+
+}
