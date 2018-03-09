@@ -1,0 +1,50 @@
+public class Solution {
+	
+	public static void quickSort(int[] input) {
+	
+		quickSort(input,0,input.length-1);
+	}
+  	public static void quickSort(int[] input,int s,int e)
+	{
+		if(s>=e)
+			return;
+		int pivotpos=partition(input,s,e);
+		quickSort(input,s,pivotpos-1);
+		quickSort(input,pivotpos+1,e);
+	}
+	public static int partition(int arr[],int s,int e)
+	{
+		int piv,count=0;
+		piv=arr[s];
+		for(int i=s+1;i<=e;i++)
+		{
+			if(piv>arr[i])
+				count++;
+		}
+		int pivotindex=count+s;
+		arr[s]=arr[s+count];
+		arr[s+count]=piv;
+		int i=s,j=e;
+		while(i<pivotindex&&j>pivotindex)
+		{
+			if(arr[i]<arr[pivotindex])
+			{
+				i++;
+			}
+			else if(arr[j]>=arr[pivotindex])
+			{
+				j--;
+			}
+			else
+			{
+				int temp=arr[i];
+				arr[i]=arr[j];
+				arr[j]=temp;
+				i++;
+				j--;
+			}
+		}
+		return pivotindex;
+	}
+	
+}
