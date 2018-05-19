@@ -1,0 +1,66 @@
+package oops;
+
+public class Fraction {
+	
+	private int num;
+	private int deno;
+	
+	public Fraction(int num, int deno) {
+		this.num = num;
+		this.deno = deno;
+	}
+
+	public  void print() {
+		System.out.println(num+"/"+deno);
+	}
+
+	public void simplify() {
+		int gcd = gcd(num, deno);
+		num = num / gcd;
+		deno = deno / gcd;
+	}
+
+	
+	public Fraction add(Fraction second) {
+		int n = this.num * second.deno + this.deno * second.num;
+		int d = this.deno * second.deno;
+		Fraction f3 = new Fraction(n, d);
+		f3.simplify();
+		return f3;
+	}
+	
+	private int gcd(int a, int b) {
+		int min = Math.min(a, b);
+		int gcd = 1;
+		for(int i = 2; i <= min; i++) {
+			if(a % i == 0 && b % i == 0) {
+				gcd = i;
+			}
+		}
+		return gcd;
+	}
+	
+}
+
+
+
+package oops;
+
+public class FractionUse {
+
+	public static void main(String[] args) {
+
+		Fraction f1 = new Fraction(3,4);
+		Fraction f2 = new Fraction(5,4);
+//		f1.simplify();
+//		f1.print();
+		
+		Fraction f3 = f1.add(f2);
+		f3.print();
+//		System.out.println(f3.print());
+//		Fraction f4 = f1.subtract(f2);
+//		Fraction f5 = f1.multiply(f2);
+
+	}
+
+}
